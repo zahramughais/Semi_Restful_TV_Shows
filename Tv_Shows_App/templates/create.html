@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+    <title>Create</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between">
+            <h1>Add a New Show</h1>
+            <a href="/shows">Go Back</a>
+        </div>
+        <form action="/shows/create" method="post">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control  w-25">
+            <div class="d-flex w-25">
+                <div>
+                    <label for="network">Network </label>
+                    <input type="text" name="network" class="form-control w-75">
+                </div>
+                <div>
+                    <label for="rel_date">Release Date </label>
+                    <input type="date" name="rel_date" class="form-control">
+                </div>
+            </div>
+            <label for="desc">Description</label>
+            <textarea name="desc" class="form-control  w-25"></textarea>
+            <input type="submit" value="Create" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>
